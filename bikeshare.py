@@ -15,7 +15,7 @@ def get_filters():
 
     while True:
         city = input().lower()
-        if city in ['chicago', 'new york city', 'washington']:
+        if city in ['chicago', 'new york city', 'washington']
             print('Please, enter the month you wish to see data for, between january to june')
             print('If you want to check the data for all months available, please ente all')
 
