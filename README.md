@@ -5,7 +5,7 @@
 Udacity third project in the Nanodegree
 
 ### Description
-Describe what your project is about and what it does
+this project is required to pass Git-GitHub section of the Nanodegree
 
 ### Files used
 Include the files used
