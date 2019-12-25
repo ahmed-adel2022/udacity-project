@@ -2,29 +2,29 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
+CITY_DATA_files = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
 def get_filters():
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
-    # Get user input for city (chicago, new york city, washington). 
+    # Get user input for city (chicago, new york city, washington).
     print('Please, Enter the name of the city you want to explore')
     print('The data available is for the cities of Chicago, New York city and Washington \nSo choose one of them, please:')
-    
+
     while True:
         city = input().lower()
         if city in ['chicago', 'new york city', 'washington']:
             print('Please, enter the month you wish to see data for, between january to june')
             print('If you want to check the data for all months available, please ente all')
-             
+
                 # Get user input for month (all, january, february, ... , june)
             while True:
                 month = input().lower()
                 if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
                     print('Please, enter the day you wish to see data for from monday to sunday \nor all if you want to see data for the whole week')
-                    
+
                     # get user input for day of week (all, monday, tuesday, ... sunday)
                     while True:
                         day=input().lower()
@@ -36,19 +36,19 @@ def get_filters():
                     break
                 else:
                     print('the month you entered is wrong or not available, please enter another month or all again')
-            break            
+            break
         else:
             print('the name of city you entered may have a mistake, or you entered a non-available city')
             print('please enter the name of the city again from the list mentioned above')
 
-  
+
     print('-'*40)
     return city, month, day
 
 
 
 def load_data(city, month, day):
-   
+
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
@@ -109,24 +109,24 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def get_filters():
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
-    # Get user input for city (chicago, new york city, washington). 
+    # Get user input for city (chicago, new york city, washington).
     print('Please, Enter the name of the city you want to explore')
     print('The data available is for the cities of Chicago, New York city and Washington \nSo choose one of them, please:')
-    
+
     while True:
         city = input().lower()
         if city in ['chicago', 'new york city', 'washington']:
             print('Please, enter the month you wish to see data for, between january to june')
             print('If you want to check the data for all months available, please ente all')
-             
+
                 # Get user input for month (all, january, february, ... , june)
             while True:
                 month = input().lower()
                 if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
                     print('Please, enter the day you wish to see data for from monday to sunday \nor all if you want to see data for the whole week')
-                    
+
                     # get user input for day of week (all, monday, tuesday, ... sunday)
                     while True:
                         day=input().lower()
@@ -138,19 +138,19 @@ def get_filters():
                     break
                 else:
                     print('the month you entered is wrong or not available, please enter another month or all again')
-            break            
+            break
         else:
             print('the name of city you entered may have a mistake, or you entered a non-available city')
             print('please enter the name of the city again from the list mentioned above')
 
-  
+
     print('-'*40)
     return city, month, day
 
 
 
 def load_data(city, month, day):
-   
+
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
@@ -215,12 +215,12 @@ def station_stats(df):
     # TO DO: display most commonly used end station
     most_com_end_station = df['End Station'].mode()[0]
     print('The most common End Station is: ',most_com_end_station)
-    
+
     # Display most common trip
     df['Trips']=df['Start Station']+' -- To -- '+df['End Station']
     most_com_trip = df['Trips'].value_counts()
     print('The most trip is between:\t\t',most_com_trip.index[0],'\n','Count:\t\t',most_com_trip.values[0])
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -233,7 +233,7 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('the total travel time across all trips in this period is (minute): ', total_travel_time/60) 
+    print('the total travel time across all trips in this period is (minute): ', total_travel_time/60)
 
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
@@ -300,7 +300,7 @@ def main():
                 break
             else:
                 print('please type yes or no only')
-                  
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
@@ -337,7 +337,7 @@ if __name__ == "__main__":
                 break
             else:
                 print('please type yes or no only')
-                  
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
